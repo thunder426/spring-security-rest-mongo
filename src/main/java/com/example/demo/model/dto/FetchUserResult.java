@@ -13,13 +13,16 @@ public class FetchUserResult {
     private List<User> userList;
 
     public FetchUserResult(User user) {
-        user.setPassword(null);
+        if (user != null)
+            user.setPassword(null);
         this.user = user;
     }
 
     public FetchUserResult(List<User> users) {
-        for (User user : users) {
-            user.setPassword(null);
+        if (users != null) {
+            for (User user : users) {
+                user.setPassword(null);
+            }
         }
         this.userList = users;
     }
